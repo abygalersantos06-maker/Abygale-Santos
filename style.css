@@ -1,0 +1,582 @@
+:root {
+  --burgundy: #622828;
+  --cream: #f1ece8;
+  --white: #fff;
+  --mauve: #855756;
+  --blush: #cebcb9;
+  --peach: #debcb0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Times New Roman', Arial, sans-serif;
+  background-color: var(--white);
+  color: var(--burgundy);
+  line-height: 1.7;
+}
+
+/* -------------------------------
+   NAVBAR
+----------------------------------*/
+.navbar {
+  background-color: var(--white);
+  border-bottom: 2px solid var(--blush);
+  padding: 1rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Centered logo */
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.nav-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+
+/* Navigation Links */
+nav {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--burgundy);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--mauve);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-buttons {
+    right: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+}
+.logo-link {
+  text-decoration: none;
+}
+
+.logo {
+  height: 60px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+
+/* -------------------------------
+   SIGN IN / SIGN UP BUTTONS
+----------------------------------*/
+.nav-buttons {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-buttons button {
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Poppins', 'Times New Roman', Arial, sans-serif;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* Outline (Sign Up) */
+.btn-outline {
+  background: transparent;
+  border: none;
+  color: var(--burgundy);
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: var(--peach);
+  border-color: var(--peach);
+  color: var(--white);
+}
+
+/* Filled (Sign In) */
+.btn-filled {
+  background-color: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 9px;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-filled:hover {
+  background-color: var(--mauve);
+  transform: translateY(-2px);
+}
+
+/* Cart Icon */
+.cart-icon-left {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  font-size: 1.5rem;
+  color: var(--burgundy);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.cart-icon-left:hover {
+  color: var(--mauve);
+}
+
+/* -------------------------------
+   HERO BANNER
+----------------------------------*/
+.hero {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--cream);
+}
+
+.hero-overlay h1 {
+  font-family: 'Un Jour Merveilleux', serif;
+  font-size: 2.8rem;
+  line-height: 1.4;
+}
+
+/* -------------------------------
+   INTRO SECTION
+----------------------------------*/
+.intro {
+  text-align: center;
+  padding: 3rem 10%;
+}
+
+.intro h2 {
+  margin-bottom: 1rem;
+  color: var(--burgundy);
+}
+
+/* -------------------------------
+   3 CARDS SECTION
+----------------------------------*/
+.three-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: var(--white);
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(98, 40, 40, 0.2);
+}
+
+.img-placeholder {
+  width: 100%;
+  height: 300px;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--burgundy);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  margin: 1rem 0;
+}
+
+/* -------------------------------
+   READY-MADE SECTION
+----------------------------------*/
+.ready-made {
+  background: var(--cream);
+  text-align: center;
+  padding: 3rem 10%;
+  color: var(--burgundy);
+}
+
+.ready-made button {
+  margin-top: 1rem;
+}
+
+/* -------------------------------
+   SHARE EXPERIENCE SECTION
+----------------------------------*/
+.share-experience {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 10%;
+  gap: 2rem;
+}
+
+.share-experience .img-placeholder {
+  width: 40%;
+  height: 350px;
+  background: #ccc;
+}
+
+.share-experience .text {
+  width: 50%;
+}
+
+.share-experience .btn-outline {
+  background-color: var(--burgundy);
+  color: var(--cream);
+  border: 2px solid var(--burgundy);
+  border-radius: 10px;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.share-experience .btn-outline:hover {
+  background-color: var(--burgundy);
+  color: var(--cream);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------
+   FINISHING TOUCHES
+----------------------------------*/
+.finishing-touches {
+  text-align: center;
+  padding: 2rem 10%;
+  background: var(--cream);
+}
+
+/* -------------------------------
+   PRODUCT GRID
+----------------------------------*/
+.product-grid {
+  padding: 3rem 10%;
+  text-align: center;
+}
+
+.product-grid .grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.product {
+  width: 30%;
+  text-align: center;
+}
+
+.product .img-placeholder {
+  height: 300px;
+  background: #ccc;
+}
+
+/* -------------------------------
+   MEET THE CREATOR
+----------------------------------*/
+.creator {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 10%;
+  gap: 3rem;
+}
+
+.creator-img {
+  width: 40%;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.creator-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.creator-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.creator-text,
+.contact {
+  font-family: 'Poppins', sans-serif;
+  color: var(--burgundy);
+}
+
+.creator-text h3,
+.contact h3 {
+  font-size: 1.8rem;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+}
+
+.contact a {
+  color: var(--burgundy);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+  color: var(--mauve);
+}
+
+/* -------------------------------
+   FOOTER
+----------------------------------*/
+.footer {
+  background: var(--burgundy);
+  color: var(--cream);
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+}
+/* -------------------------------
+   RESPONSIVE
+----------------------------------*/
+@media (max-width: 900px) {
+  .three-cards,
+  .share-experience,
+  .creator {
+    flex-direction: column;
+  }
+
+  .card,
+  .product {
+    width: 90%;
+  }
+
+  .share-experience .img-placeholder,
+  .creator-img {
+    width: 100%;
+  }
+}
+
+/* -------------------------------
+   INVITATION PAGE STYLES
+----------------------------------*/
+.invite-hero {
+  width: 100%;
+  height: 450px;
+  background-color: var(--blush);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--burgundy);
+  font-family: 'Un Jour Merveilleux', serif;
+}
+
+.invite-hero h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+/* Invitation Details Section */
+.invite-section {
+  background-color: var(--cream);
+  padding: 4rem 10%;
+  text-align: center;
+  color: var(--burgundy);
+}
+
+.invite-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--burgundy);
+}
+
+.invite-section p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  color: var(--mauve);
+  font-size: 1.1rem;
+}
+
+/* Cards for invitation types */
+.invite-cards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.invite-card {
+  width: 300px;
+  background-color: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(98, 40, 40, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.invite-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(98, 40, 40, 0.25);
+}
+
+.invite-card .img-placeholder {
+  height: 200px;
+  background-color: var(--peach);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--cream);
+  font-size: 1.2rem;
+}
+
+.invite-card h3 {
+  font-size: 1.3rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.invite-card p {
+  font-size: 0.95rem;
+  padding: 0 1rem 1.5rem;
+  color: var(--mauve);
+}
+
+/* CTA Section */
+.invite-cta {
+  text-align: center;
+  background-color: var(--white);
+  padding: 3rem 10%;
+}
+
+.invite-cta h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--burgundy);
+}
+
+.invite-cta button {
+  background-color: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.invite-cta button:hover {
+  background-color: var(--mauve);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .invite-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .invite-card {
+    width: 90%;
+  }
+}
