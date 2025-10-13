@@ -180,7 +180,7 @@ nav {
 .hero {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 650px;
   overflow: hidden;
 }
 
@@ -233,7 +233,7 @@ nav {
 }
 
 .card {
-  width: 300px;
+  width: 400px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
@@ -246,7 +246,7 @@ nav {
 
 .img-placeholder {
   width: 100%;
-  height: 300px;
+  height: 400px;
   background-color: var(--white);
   display: flex;
   align-items: center;
@@ -336,27 +336,88 @@ nav {
    PRODUCT GRID
 ----------------------------------*/
 .product-grid {
-  padding: 3rem 10%;
   text-align: center;
+  padding: 4rem 8%;
+  background-color: var(--white);
 }
 
-.product-grid .grid {
+.product-grid h4 {
+  font-size: 1.6rem;
+  color: var(--burgundy);
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.grid {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  align-items: stretch;
   flex-wrap: wrap;
-  margin: 1rem 0;
+  gap: 2rem;
+  margin-bottom: 4rem;
 }
 
 .product {
-  width: 30%;
+  background-color: var(--cream);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(98, 40, 40, 0.15);
+  width: 280px;
+  overflow: hidden;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
-.product .img-placeholder {
-  height: 300px;
-  background: #ccc;
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(98, 40, 40, 0.25);
 }
+
+.img-box {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.product:hover img {
+  transform: scale(1.05);
+}
+
+.product p {
+  font-size: 1rem;
+  color: var(--burgundy);
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+.product span {
+  color: var(--mauve);
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .product {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .product {
+    width: 90%;
+  }
+
+  .product-grid h4 {
+    font-size: 1.3rem;
+  }
+}
+
 
 /* -------------------------------
    MEET THE CREATOR
@@ -579,4 +640,205 @@ nav {
   .invite-card {
     width: 90%;
   }
+}
+/* ---- ENVELOPES & LINERS PAGE ---- */
+
+.page-header {
+  text-align: center;
+  background-color: var(--cream);
+  color: var(--burgundy);
+  padding: 3rem 1rem 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+  font-size: 1rem;
+  color: var(--mauve);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Container for all envelope cards */
+.envelopes-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 1rem 4rem;
+  background-color: var(--white);
+}
+
+/* Each row of cards */
+.card-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+}
+
+/* Card Style */
+.invite-card {
+  width: 270px;
+  height: 360px;
+  background-color: var(--white);
+  border: 1px solid var(--blush);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(98, 40, 40, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.invite-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(98, 40, 40, 0.25);
+}
+
+/* Image placeholder area */
+.invite-card img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text area under image */
+.card-text {
+  background-color: var(--cream);
+  text-align: center;
+  padding: 0.8rem;
+  height: 25%;
+}
+
+.card-text h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--burgundy);
+}
+
+.card-text p {
+  font-size: 0.95rem;
+  color: var(--mauve);
+}
+
+/* ==============================
+   Product Grid
+============================== */
+.product-grid {
+  text-align: center;
+  padding: 3rem 4rem;
+}
+
+.product-grid h3 {
+  font-size: 1.4rem;
+  color: var(--burgundy);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.product {
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 1.2rem;
+  width: 270px;
+  height: 360px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.img-box {
+  width: 100%;
+  height: 260px; 
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.product:hover .img-box img,
+.invite-card:hover .img-box img {
+  transform: scale(1.1); 
+}
+
+.product,
+.invite-card {
+  width: 320px; 
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(98, 40, 40, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product:hover,
+.invite-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(98, 40, 40, 0.25);
+}
+
+.product p {
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.product span {
+  color: var(--mauve);
+  font-weight: 600;
+}
+
+/* ==============================
+   Footer
+============================== */
+
+.footer {
+  background-color: #4b2b2b;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
