@@ -263,21 +263,37 @@ nav {
 /* Cards for invitation types */
 .invite-cards {
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;      
+  overflow-x: auto;         
+  scroll-behavior: smooth;  
   gap: 2rem;
-  padding-top: 2rem;
+  padding: 2rem 0;
 }
 
 .invite-card {
-  width: 300px;
+  flex: 0 0 280px;          
   background-color: var(--white);
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(98, 40, 40, 0.15);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.invite-cards::-webkit-scrollbar {
+  height: 10px;
+}
+
+.invite-cards::-webkit-scrollbar-thumb {
+  background-color: var(--mauve);
+  border-radius: 10px;
+}
+
+.invite-cards::-webkit-scrollbar-track {
+  background-color: var(--cream);
 }
 
 .invite-card:hover {
@@ -285,26 +301,26 @@ nav {
   box-shadow: 0 8px 18px rgba(98, 40, 40, 0.25);
 }
 
-.invite-card .img-placeholder {
-  height: 200px;
-  background-color: var(--peach);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--cream);
-  font-size: 1.2rem;
+.invite-card img {
+  width: 100%;
+  height: 200px; /* uniform image height */
+  object-fit: cover;
+  display: block;
 }
 
 .invite-card h3 {
-  font-size: 1.3rem;
-  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+  margin: 0.8rem 0 0.4rem;
+  text-align: center;
 }
 
 .invite-card p {
-  font-size: 0.95rem;
-  padding: 0 1rem 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
   color: var(--mauve);
+  text-align: center;
 }
+
 
 /* CTA Section */
 .invite-cta {
