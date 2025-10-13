@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Nabi | Embellishments</title>
+  <link rel="stylesheet" href="css/invitation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="cart-icon-left"><i class="fas fa-cart-plus"></i></a>
+
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/Logo main.png" alt="Lumina Nabi Logo">
+        </a>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="#" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+      </div>
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="invitation.html">Invitation Cards</a></li>
+        <li><a href="envelopeandliners.html">Envelopes & Liners</a></li>
+        <li><a href="embellishment.html">Embellishments</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <!-- Replace this with your Embellishments banner -->
+    <img src="images/Embellishments.png" alt="Embellishments Banner">
+    <div class="hero-overlay"></div>
+
+    <!-- Intro Section (Centered) -->
+    <div class="intro">
+      <h2>The Jardin Lumière</h2>
+      <p>
+        Luxury lies in the details. Our <strong> and liners </strong>are designed to transform your wedding suite into a statement of <em>refinement.</em>
+        Choose from handpicked textures, bold hues, and artful patterns that elevate your invitations from beautiful to unforgettable. 
+        Each pairing is crafted to frame your message with sophistication, ensuring your love story is delivered in style.
+      </p>
+    </div>
+  </section>
+  <!-- Collection Section -->
+<section class="collection-section">
+  <div class="collection-heading">
+    <h3><br>Belly Bands & ribbons</h3>
+  </div>
+
+  <!-- Collection Grid -->
+  <section class="collection-grid">
+    <div class="collection">
+      <img src="images/flower belly band.png" alt="flower">
+      <p><strong>Flower | Belly Band</strong><br>₱ 379.00</p>
+    </div>
+
+    <div class="collection">
+      <img src="images/velvet belly band.png" alt="velvet">
+      <p><strong>Velvet | Belly Band</strong><br>₱ 379.00</p>
+    </div>
+
+    <div class="collection">
+      <img src="images/woven ribbon.png" alt="woven">
+      <p><strong>Woven | Ribbon</strong><br>₱ 199.00</p>
+    </div>
+
+    <div class="collection">
+      <img src="images/silk ribbon.png" alt="Silk">
+      <p><strong>Silk | Ribbon</strong><br>₱ 189.00</p>
+    </div>
+  </section>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© Copyright 2025. All rights reserved. Created by Abygale Santos</p>
+    <p><a href="mailto:luminanabishop@gmail.com">luminanabi.com</a></p>
+  </footer>
+</body>
+</html>
