@@ -20,6 +20,11 @@ body {
   line-height: 1.7;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* -------------------------------
    NAVBAR
 ----------------------------------*/
@@ -455,52 +460,52 @@ nav {
   text-align: center;
 }
 
-/* ---------- Customization Section ---------- */
-.customization {
+/* ---------- Experience Section ---------- */
+.experience {
   background-color: #f7f5f4;
   padding: 5rem 10%;
 }
 
-.customization-content {
+.experience-content {
   display: flex;
   align-items: center;
   gap: 3rem;
   flex-wrap: wrap;
 }
 
-.customization-img {
+.experience-img {
   flex: 1 1 45%;
 }
 
-.customization-img img {
+.experience-img img {
   width: 100%;
   border-radius: 10px;  
 }
 
-.customization-text {
+.experience-text {
   flex: 1 1 50%;
   color: #4b2b2b;
 }
 
-.customization-text p:first-child {
+.experience-text p:first-child {
   font-size: 0.8rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 600;
 }
 
-.customization-text h3 {
+.experience-text h3 {
   font-size: 1.3rem;
   color: #8b2e2e;
   margin: 0.5rem 0 1rem;
 }
 
-.customization-text ul {
+.experience-text ul {
   margin: 1rem 0 1.5rem 1.5rem;
   line-height: 1.6;
 }
 
-.customization-text .btn-filled {
+.experience-text .btn-filled {
   background-color: #4b2b2b;
   color: #fff;
   border: none;
@@ -511,7 +516,7 @@ nav {
   transition: background 0.3s ease;
 }
 
-.customization-text .btn-filled:hover {
+.experience-text .btn-filled:hover {
   background-color: #2f1b1b;
 }
 
