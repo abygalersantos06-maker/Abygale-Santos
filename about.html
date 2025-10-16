@@ -138,19 +138,54 @@
   </form>
 
   <!-- Thank You Popup -->
-  <div class="thank-you" id="thankYouMessage">
-    <div class="thank-you-box">
+  <div class="thank-you" id="thankYouMessage" aria-hidden="true" role="dialog">
+    <div class="thank-you-box" role="document">
       <h3>Thank You for Filling Out the Survey!</h3>
       <p>Your feedback means a lot to us and helps us create even better experiences.</p>
-      <button id="okButton">OK</button>
+      <button id="okButton" type="button">OK</button>
     </div>
   </div>
 </section>
 
-
   <footer>
     <p>&copy; 2025 Lumina nabi. All Rights Reserved.</p>
   </footer>
-  <script src="js:script.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const feedbackForm = document.getElementById("feedbackForm");
+  const thankYouMessage = document.getElementById("thankYouMessage");
+  const okButton = document.getElementById("okButton");
+
+  if (!feedbackForm || !thankYouMessage || !okButton) {
+    console.error("Missing elements: check IDs of feedbackForm, thankYouMessage, okButton");
+    return;
+  }
+
+  feedbackForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // stop real submission for now
+    console.log("Feedback form submitted"); // debugging
+
+    feedbackForm.reset();          // clear inputs
+    thankYouMessage.style.display = "flex";
+    thankYouMessage.setAttribute("aria-hidden", "false");
+    // optional: focus the OK button for accessibility
+    okButton.focus();
+  });
+
+  okButton.addEventListener("click", function () {
+    thankYouMessage.style.display = "none";
+    thankYouMessage.setAttribute("aria-hidden", "true");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // also hide popup if user presses Escape
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && thankYouMessage.style.display === "flex") {
+      thankYouMessage.style.display = "none";
+      thankYouMessage.setAttribute("aria-hidden", "true");
+    }
+  });
+});
+</script>
 </body>
 </html>
