@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumina Nabi | Wedding Invitation Template Shop</title>
   <link rel="stylesheet" href="css/style.css" />
-  <script defer src="script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
+  <script src="script.js"></script>
+
+<h3 id="welcomeText" style="text-align:center;"></h3>
+
   <!-- Navbar -->
   <header class="navbar">
     <div class="nav-container">
@@ -22,10 +25,17 @@
         </a>
       </div>
 
-      <div class="nav-buttons">
-        <a href="#" class="btn-outline">Sign up</a>
-        <a href="#" class="btn-filled">Sign In</a>
+      <div id="authButtons" class="nav-buttons">
+        <a href="signup.html" class="btn-outline">Sign Up</a>
+        <a href="signin.html" class="btn-filled">Sign In</a>
       </div>
+
+<div id="userSection" class="nav-buttons" style="display:none;">
+  <span id="welcomeUser" style="margin-right:10px; color:#333; font-weight:500;"></span>
+  <button id="logoutBtn" class="btn-outline">Logout</button>
+</div>
+
+
     </div>
 
     <nav>
@@ -59,7 +69,7 @@
     </p>
     <p>
       With Lumina Nabi, <strong>your first impression becomes a treasured keepsake</strong> —
-      a radiant beginning to a day that will be remembered forever.
+      a radiant beginning to a day that will be remembered.
     </p>
   </section>
 
@@ -101,7 +111,7 @@
       Simply choose the style that speaks to your heart, and let your invitations be a radiant reflection of
       your celebration—without the wait of full customization.
     </p>
-    <button class="btn-filled">VIEW ALL DESIGNS</button>
+  
   </section>
 
   <!-- Share Experience Section -->
@@ -114,7 +124,7 @@
       <p>ABOUT US</p>
       <h3>Share Your Experience with Lúmina Nabi</h3>
       <p>Your journey matters to us. Tell us about your experience with our shop—your feedback helps us grow and inspires future celebrations.</p>
-      <button class="btn-outline">SHARE NOW</button>
+       <a href="about.html#feedback-section" class="btn-filled">SHARE NOW</a>
     </div>
   </section>
 
