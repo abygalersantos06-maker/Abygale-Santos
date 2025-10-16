@@ -520,6 +520,19 @@ nav {
   background-color: #2f1b1b;
 }
 
+.experience-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start; /* change to center to center children */
+}
+
+/* then override just for centering the CTA */
+.experience-text.center-cta {
+  align-items: center;
+}
+
+
 /* ---------- Quote Section ---------- */
 .quote {
   text-align: center;
