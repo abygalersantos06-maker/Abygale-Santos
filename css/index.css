@@ -1,0 +1,724 @@
+:root {
+  --burgundy: #622828;
+  --cream: #f1ece8;
+  --white: #fff;
+  --mauve: #855756;
+  --blush: #cebcb9;
+  --peach: #debcb0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Times New Roman', Arial, sans-serif;
+  background: var(--white);
+  color: var(--burgundy);
+  line-height: 1.7;
+}
+
+/* ================= COMMON STYLES ================= */
+.navbar {
+  background: var(--white);
+  border-bottom: 2px solid var(--blush);
+  padding: 1rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo img {
+  height: 60px;
+  margin: 0 auto;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--burgundy);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--mauve); }
+
+.nav-buttons {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Outline (Sign Up) */
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--burgundy);
+  color: var(--burgundy);
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: var(--peach);
+  border-color: var(--peach);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Filled (Sign In) */
+.btn-filled {
+  background: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 9px;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-filled:hover {
+  background: var(--mauve);
+  transform: translateY(-2px);
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  background: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 9px;
+  padding: 0.8rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin: 1rem 0;
+  font-size: 1rem;
+  width: 200px;
+  text-align: center;
+}
+
+.add-to-cart:hover {
+  background: var(--mauve);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(133, 87, 86, 0.3);
+}
+
+/* Cart Icon - Fixed positioning and cursor */
+.cart-icon-left {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  font-size: 1.5rem;
+  color: var(--burgundy);
+  transition: color 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.cart-icon-left:hover { 
+  color: var(--mauve); 
+  transform: scale(1.1);
+}
+
+/* ================= SECTIONS ================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.intro, .ready-made, .finishing-touches {
+  text-align: center;
+  padding: 3rem 10%;
+}
+
+.ready-made, .finishing-touches { background: var(--cream); }
+
+.three-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(98, 40, 40, 0.2);
+}
+
+.img-placeholder {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.share-experience {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 10%;
+  gap: 2rem;
+}
+
+.share-experience .img-placeholder {
+  width: 40%;
+  height: 350px;
+  background: #ccc;
+}
+
+.share-experience .text { width: 50%; }
+
+.product-grid {
+  text-align: center;
+  padding: 4rem 8%;
+}
+
+.product-grid h4 {
+  font-size: 1.6rem;
+  color: var(--burgundy);
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.product {
+  background: var(--cream);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(98, 40, 40, 0.15);
+  width: 280px;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(98, 40, 40, 0.25);
+}
+
+.img-box {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.product:hover img { 
+  transform: scale(1.05); 
+}
+
+.product p { padding: 1rem; }
+.product span { color: var(--mauve); font-weight: 600; }
+
+.product a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Product actions container */
+.product-actions {
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.creator {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 10%;
+  gap: 3rem;
+}
+
+.creator-img { width: 40%; text-align: center; }
+.creator-img img { width: 100%; height: 100%; object-fit: cover; }
+.creator-right { width: 50%; display: flex; flex-direction: column; gap: 2rem; }
+
+.creator-text h3, .contact h3 {
+  font-size: 1.8rem;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+}
+
+.contact a {
+  color: var(--burgundy);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact a:hover { text-decoration: underline; color: var(--mauve); }
+
+.footer {
+  background: var(--burgundy);
+  color: var(--cream);
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer a { text-decoration: none; color: white; }
+
+/* ================= COMPONENTS ================= */
+.audio-player {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--peach);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.audio-player:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+}
+
+.play-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: var(--peach);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button:hover { background: var(--mauve); }
+.pause-icon { display: none; }
+
+.playing .play-icon { display: none; }
+.playing .pause-icon { display: inline; }
+
+/* ================= HAMBURGER MENU STYLES ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: absolute;
+  right: 20px; /* Changed from left to right */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--burgundy);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) { 
+  transform: rotate(45deg) translate(6px, 6px); 
+}
+
+.hamburger.active span:nth-child(2) { 
+  opacity: 0; 
+}
+
+.hamburger.active span:nth-child(3) { 
+  transform: rotate(-45deg) translate(6px, -6px); 
+}
+
+.mobile-nav-links {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--white);
+  z-index: 999;
+  padding: 80px 2rem 2rem;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.mobile-nav-links.active { 
+  display: flex; 
+  animation: slideInDown 0.3s ease; 
+}
+
+.mobile-nav-links li {
+  text-align: center;
+  border-bottom: 1px solid var(--blush);
+}
+
+.mobile-nav-links li:last-child { 
+  border-bottom: none; 
+}
+
+.mobile-nav-links a {
+  display: block;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--burgundy);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: var(--white);
+  font-size: 1.1rem;
+}
+
+.mobile-nav-links a:hover {
+  background: var(--cream);
+  color: var(--mauve);
+  transform: translateX(10px);
+}
+
+.menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--burgundy);
+  cursor: pointer;
+  z-index: 1002;
+  padding: 10px;
+}
+
+body.menu-open { 
+  overflow: hidden; 
+}
+
+body.menu-open::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Updated animations for top to bottom slide */
+@keyframes slideInDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-100%); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+/* ================= MOBILE STYLES ================= */
+@media (max-width: 768px) {
+  .navbar { padding: 8px 4%; }
+  .nav-container { 
+    padding: 0.3rem 0.5rem; 
+    min-height: 60px; 
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .hamburger {
+    display: flex;
+    position: static;
+    transform: none;
+    order: 3; /* Changed from 1 to 3 - now on the right */
+    margin-left: auto;
+  }
+  
+  .cart-icon-left {
+    position: static;
+    order: 1; /* Changed from 3 to 1 - now on the left */
+    margin-right: auto;
+    font-size: 1.3rem;
+  }
+  
+  .logo {
+    order: 2;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .logo img { 
+    height: 45px; 
+    max-width: 160px; 
+    display: inline-block;
+  }
+  
+  nav, .nav-buttons { display: none; }
+  
+  .mobile-nav-links { padding: 70px 1rem 1.5rem; }
+  .mobile-nav-links a { padding: 14px 15px; }
+  
+  .hero { height: 380px; }
+  
+  /* Center "WELCOME TO LÚMINA NABI" on mobile */
+  .intro { 
+    padding: 1.5rem 1rem; 
+    text-align: center !important;
+  }
+  .intro p:first-child {
+    text-align: center !important;
+    margin-bottom: 0.5rem;
+  }
+  .intro h2 { 
+    font-size: 1.6rem; 
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .intro p { 
+    font-size: 0.9rem; 
+    text-align: justify;
+    margin-bottom: 1rem;
+  }
+  
+  /* Center collection cards */
+  .three-cards { 
+    flex-direction: column; 
+    padding: 1.5rem 0.8rem; 
+    gap: 1rem;
+    align-items: center;
+  }
+  .card { 
+    width: 100%; 
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .img-placeholder { height: 260px; }
+  
+  /* Remove share image on mobile */
+  .share-experience { 
+    flex-direction: column; 
+    padding: 1.5rem 1rem; 
+    gap: 1rem;
+  }
+  .share-experience .img-placeholder { 
+    display: none;
+  }
+  .share-experience .text { 
+    width: 100%; 
+    text-align: center;
+  }
+  
+  .ready-made, .finishing-touches { 
+    padding: 1.5rem 1rem; 
+    text-align: center;
+  }
+  
+  .product-grid { padding: 1.5rem 0.8rem; }
+  .grid { 
+    gap: 1rem; 
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  .img-box { height: 180px; }
+  
+  .add-to-cart {
+    width: 180px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .creator { flex-direction: column; padding: 1.5rem 1rem; gap: 1.5rem; }
+  .creator-img, .creator-right { width: 100%; }
+  .creator-img { max-width: 300px; margin: 0 auto; }
+  .creator-text h3, .contact h3 { font-size: 1.5rem; text-align: center; }
+  
+  .footer { padding: 1rem; }
+  .audio-player { 
+    bottom: 12px; 
+    right: 12px; 
+    padding: 6px 12px; 
+    transform: scale(0.85); 
+  }
+}
+
+/* ================= TABLET STYLES (769px - 1024px) ================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Keep collections horizontal on tablet */
+  .three-cards {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    width: calc(50% - 1rem);
+    max-width: 300px;
+    margin: 0;
+  }
+  
+  .img-placeholder {
+    height: 320px;
+  }
+  
+  /* Ensure desktop navigation shows on tablet */
+  .hamburger, .mobile-nav-links { 
+    display: none !important; 
+  }
+  
+  nav, .nav-buttons { 
+    display: block !important; 
+  }
+}
+
+/* ================= SMALL MOBILE STYLES (480px and below) ================= */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 12px;
+  }
+
+  .cart-icon-left {
+    font-size: 1.2rem;
+    order: 1; /* Ensure cart stays on left */
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .hamburger {
+    width: 26px;
+    height: 18px;
+    order: 3; /* Ensure hamburger stays on right */
+  }
+
+  .hamburger span { height: 2.5px; }
+  
+  .mobile-nav-links { padding: 60px 0.8rem 1rem; }
+  .mobile-nav-links a { padding: 12px 12px; font-size: 0.95rem; }
+  
+  .hero { height: 320px; }
+  .intro, .ready-made, .share-experience, .finishing-touches, .creator { padding: 1rem 0.8rem; }
+  .three-cards, .product-grid { padding: 1rem 0.5rem; }
+  
+  .card { max-width: 320px; }
+  
+  .add-to-cart {
+    width: 160px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ================= DESKTOP STYLES (1025px and above) ================= */
+@media (min-width: 1025px) {
+  .hamburger, .mobile-nav-links { display: none !important; }
+  nav, .nav-buttons { display: block !important; }
+}
