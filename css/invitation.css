@@ -176,119 +176,76 @@ html {
   margin: 0;
 }
 
-/* ========== FIXED COLLECTIONS SECTION - ALL VIEWPORTS ========== */
+/* ---------- Collection Grid - FULL IMAGES BUT BALANCED ---------- */
+
+/* ---------- Collection Grid - FIXED LAYOUT ---------- */
 .collections-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   gap: 2rem;
-  padding: 3rem 2rem;
+  flex-wrap: wrap; /* CHANGED: nowrap → wrap */
+  padding: 2rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  overflow-x: visible; /* CHANGED: auto → visible */
 }
 
 .collection {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 1.5rem;
+  flex: 0 0 auto;
+  width: 260px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.collection img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
   transition: transform 0.3s ease;
-  border: 1px solid rgba(98, 40, 40, 0.1);
 }
 
-.collection:hover {
-  transform: translateY(-5px);
+.collection:hover img {
+  transform: scale(1.03);
 }
 
-.collection-image {
-  width: 100%;
-  height: 250px;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--cream);
+/* REMOVE or COMMENT OUT the scrollbar hiding */
+/* .collections-container::-webkit-scrollbar {
+  display: none;
+} */
+
+.collections-figure figcaption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 1.5rem;
+  color: #555;
+}
+
+.collection a {
+  text-decoration: none;
+  color: inherit;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  height: 100%;
 }
 
-.collection-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 10px;
+.collection p {
+  margin-top: auto;
+  color: #3e2a2a;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .collection strong {
   color: var(--burgundy);
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
   display: block;
   margin-bottom: 0.5rem;
-}
-
-.collection p {
-  color: #5a3a3a;
-  margin-bottom: 1rem;
-}
-
-.collection-price {
-  color: var(--mauve);
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
-/* Collections Figure Caption */
-.collections-figure {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.collections-figure figcaption {
-  font-style: italic;
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(98, 40, 40, 0.1);
-}
-
-/* Textured Collection - Fixed */
-.textured-collection .collection-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  padding: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.textured-collection .collection {
-  background: transparent;
-  box-shadow: none;
-  border: none;
-  padding: 0;
-}
-
-.textured-collection .collection:hover {
-  transform: translateY(-5px);
-  box-shadow: none;
-}
-
-.textured-collection .collection-image {
-  height: 320px;
-  background: transparent;
-}
-
-.textured-collection .collection-image img {
-  padding: 0;
-}
-
-/* Remove horizontal scroll styles */
-.collections-container::-webkit-scrollbar {
-  display: none;
 }
 /* ---------- Experience Section ---------- */
 .experience {
@@ -458,6 +415,81 @@ html {
   margin-right: auto;
 }
 
+/* Textured Collection Specific Styling */
+.textured-collection .collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.textured-collection .collection {
+  text-align: center;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.textured-collection .collection:hover {
+  transform: translateY(-5px);
+  box-shadow: none;
+}
+
+.textured-collection .collection a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.textured-collection .collection img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.textured-collection .collection:hover img {
+  transform: scale(1.02);
+}
+
+.textured-collection .collection p {
+  margin-top: auto;
+  color: #3e2a2a;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.textured-collection .collection strong {
+  color: var(--burgundy);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 /* -------------------------------
    FOOTER
 ----------------------------------*/
@@ -612,36 +644,40 @@ footer a:hover {
     font-size: 0.9rem;
   }
 
-  /* MOBILE COLLECTIONS FIX */
   .collections-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem 1rem;
+  flex-wrap: wrap;
+  overflow-x: visible;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  justify-content: center; /* ADD THIS - centers the items */
+}
+
+.collection {
+  width: calc(50% - 1rem); /* 2 columns on mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ADD THIS - centers content inside each collection */
+}
+
+.collection img,
+.collection p,
+.collection strong {
+  text-align: center; /* ADD THIS - ensures text is centered */
+}
+
+  .collection img {
+    max-height: 350px;
   }
-  
-  .collection {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .collection-image {
-    height: 250px;
-  }
-  
-  .collections-figure figcaption {
-    font-size: 0.9rem;
-    padding: 1.5rem 1rem;
-  }
-  
+
   /* Textured Collection Mobile */
   .textured-collection .collection-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem 1rem;
+    max-width: 100%;
+    padding: 2rem 1.5rem;
   }
-  
-  .textured-collection .collection-image {
-    height: 280px;
+
+  .textured-collection .collection img {
+    max-height: 350px;
   }
 
   /* Categories Table Mobile */
@@ -659,6 +695,23 @@ footer a:hover {
   .categories-table th {
     font-size: 1rem;
   }
+
+  .collections-figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.collections-figure figcaption {
+  font-style: italic;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(98, 40, 40, 0.1);
+}
 
   /* Experience Section */
   .experience {
@@ -730,9 +783,28 @@ footer a:hover {
     font-size: 0.85rem;
   }
 
-  .collection-image {
-    height: 220px;
-  }
+  .collections-container {
+  padding: 2rem 1rem;
+  gap: 1.5rem;
+  justify-content: center; /* Ensure centered layout */
+}
+
+.collection {
+  width: 100%; /* 1 column on very small screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content inside */
+}
+
+.collection img {
+  max-height: 300px;
+  text-align: center; /* Center images */
+}
+
+.collection p,
+.collection strong {
+  text-align: center; /* Center text */
+}
 
   /* Hide table on mobile portrait */
   .categories-table {
@@ -753,7 +825,7 @@ footer a:hover {
   }
 }
 
-/* ================= TABLET STYLES (769px - 1024px) ================= */
+/* ================= ALL TABLETS (769px - 1024px) ================= */
 @media (min-width: 769px) and (max-width: 1024px) {
   .navbar {
     padding: 12px 4%;
@@ -786,123 +858,94 @@ footer a:hover {
     right: 3%;
   }
 
-  /* Tablet Hero Section */
-  .hero {
-    height: 450px;
-  }
-  
-  .intro-centered {
-    padding: 2rem 2.5rem;
-    max-width: 700px;
-  }
-  
-  .intro-centered h2 {
-    font-size: 1.6rem;
-  }
+  /* COLLECTIONS - 3 columns for all tablets (iPad Air style) */
+  /* ---------- Collection Grid - 2x2 LAYOUT ---------- */
+.collections-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 2rem;
+  padding: 2rem 1rem;
+  max-width: 800px; /* This centers the grid */
+  margin: 0 auto; /* This centers the container */
+  justify-items: center; /* Center items horizontally in grid cells */
+}
 
-  /* TABLET COLLECTIONS FIX */
-  .collections-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  
-  .collection {
-    max-width: none;
-  }
-  
-  .collection-image {
-    height: 300px;
-  }
-  
-  .collections-figure figcaption {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 1rem;
-    color: var(--mauve);
-    padding: 0 1rem;
-  }
+.collection {
+  text-align: center;
+  width: 100%; /* Ensure full width of grid cell */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content inside each collection */
+}
 
-  /* Tablet Textured Collection */
-  .textured-collection .collection-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    padding: 2rem 1.5rem;
-  }
+.collection img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  max-width: 300px; /* Optional: control image max size */
+}
 
-  /* Tablet Experience Section */
+.collection:hover img {
+  transform: scale(1.03);
+}
+
+.collections-figure figcaption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 1.5rem;
+  color: #555;
+}
+
+.collection a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.collection p {
+  margin-top: auto;
+  color: #3e2a2a;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.collection strong {
+  color: var(--burgundy);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+  /* Experience Section */
   .experience {
-    padding: 4rem 5%;
+    padding: 4rem 8%;
   }
 
   .experience-content {
     gap: 2.5rem;
   }
 
-  .experience-text h3 {
-    font-size: 1.6rem;
-  }
-
-  /* Tablet Categories Table */
-  .categories-table {
-    max-width: 90%;
-    margin: 3rem auto;
-  }
-
-  .categories-table th,
-  .categories-table td {
-    padding: 1rem 1.2rem;
-    font-size: 0.95rem;
-  }
-
-  /* Tablet Collection Headings */
-  .collection-heading-full {
-    padding: 2.5rem 1rem;
-    margin: 3rem 0 1.5rem 0;
-  }
-
-  .collection-heading-full h3 {
-    font-size: 1.8rem;
-  }
-
-  .collection-heading-full p {
-    font-size: 1rem;
-  }
-
-  /* Tablet Quote Section */
+  /* Quote Section */
   .quote {
-    padding: 3rem 5%;
-    font-size: 1.15rem;
-  }
-}
-
-/* ================= DESKTOP STYLES (1025px and above) ================= */
-@media (min-width: 1025px) {
-  .collections-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-  
-  .collection-image {
-    height: 320px;
-  }
-  
-  /* Textured Collection Desktop */
-  .textured-collection .collection-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    padding: 3rem 2rem;
+    padding: 4rem 8%;
+    font-size: 1.3rem;
   }
 }
 
 /* Large Desktop (1200px and above) */
 @media (min-width: 1200px) {
-  .collections-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2.5rem;
-  }
-  
-  .collection-image {
-    height: 280px;
+
+  .collection img {
+    max-height: 380px;
   }
 }
 
