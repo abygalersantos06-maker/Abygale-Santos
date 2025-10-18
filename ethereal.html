@@ -25,7 +25,7 @@
       </div>
 
       <div class="nav-buttons">
-        <button class="hamburger" id="hamburger">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -48,7 +48,6 @@
       <div class="hero-overlay"></div>
     </div>
 
-    <!-- Intro Section Centered on Banner -->
     <div class="intro-centered">
       <h2>Ethereal Petals Collection</h2>
       <p>
@@ -57,9 +56,8 @@
     </div>
   </section>
 
-  <!-- Ethereal Collection -->
+  <!-- Collections -->
   <section class="collection-section">
-    <!-- CHANGED: Use collections-container instead of collection-grid -->
     <div class="collections-container">
       <!-- BLUE SERIES -->
       <div class="collection">
@@ -153,72 +151,92 @@
     </div>
   </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Save product data on click
-      document.querySelectorAll('.collection a').forEach(link => {
-        link.addEventListener('click', (e) => {
-          const productData = {
-            name: link.dataset.name,
-            price: link.dataset.price,
-            image: link.dataset.image.trim(),
-            description: link.dataset.description
-          };
-          console.log('Saved product:', productData);
-          localStorage.setItem('product', JSON.stringify(productData));
-        });
-      });
-
-      // Mobile menu functionality
-      const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('navLinks');
-      
-      if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-          navLinks.classList.toggle('active');
-          hamburger.classList.toggle('active');
-          document.body.classList.toggle('menu-open');
-        });
-
-        // Close menu when clicking on links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.classList.remove('menu-open');
-          });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.classList.remove('menu-open');
-          }
-        });
-      }
-
-      // Cart count functionality
-      const updateCartCount = () => {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartCount = document.getElementById("cart-count");
-        if (cartCount) {
-          cartCount.textContent = cart.length;
-        }
-      };
-
-      // Initialize cart count
-      updateCartCount();
-
-      // Update cart count when storage changes (from other pages)
-      window.addEventListener('storage', updateCartCount);
-    });
-  </script>
-
   <footer class="footer">
     <p>© Copyright 2025. All rights reserved. Created by Abygale Santos</p>
     <p><a href="mailto:luminanabishop@gmail.com">luminanabi.com</a></p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Hamburger Menu Toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+      
+      // Change icon
+      const icon = hamburger.querySelector('i');
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Close menu when clicking on a link
+    const menuLinks = document.querySelectorAll('.nav-links a');
+    menuLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+  }
+
+  // Product Data Storage
+  const productLinks = document.querySelectorAll('.collection a');
+  productLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      const productData = {
+        name: link.getAttribute('data-name'),
+        price: link.getAttribute('data-price'),
+        image: link.getAttribute('data-image'),
+        description: link.getAttribute('data-description')
+      };
+      localStorage.setItem('product', JSON.stringify(productData));
+    });
+  });
+
+  // Cart Count Update
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+      cartCount.textContent = cart.length;
+    }
+  }
+
+  updateCartCount();
+  
+  window.addEventListener('storage', function() {
+    updateCartCount();
+  });
+});
+  </script>
 </body>
-</html> 
+</html>
