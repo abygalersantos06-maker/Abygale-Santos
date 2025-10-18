@@ -72,26 +72,78 @@ if (signinForm) {
   });
 }
 
-// ----- INDEX (Welcome + Logout) -----
-document.addEventListener("DOMContentLoaded", () => {
-  const email = localStorage.getItem("loggedInUser");
-  const users = JSON.parse(localStorage.getItem("users")) || {};
-  const authButtons = document.getElementById("authButtons");
-  const userSection = document.getElementById("userSection");
-  const welcomeUser = document.getElementById("welcomeUser");
-  const logoutBtn = document.getElementById("logoutBtn");
+// ----- AUDIO -----
+const audio = document.getElementById('bgAudio');
+const playButton = document.getElementById('playButton');
+const progressBar = document.getElementById('progressBar');
 
-  if (email && users[email]) {
-    if (authButtons) authButtons.style.display = "none";
-    if (userSection) userSection.style.display = "flex";
-    if (welcomeUser) welcomeUser.textContent = "Welcome, " + users[email].firstName + "!";
-  }
+let isPlaying = false;
 
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem("loggedInUser");
-      alert("You’ve logged out successfully.");
-      window.location.reload();
-    });
+playButton.addEventListener('click', () => {
+  if (!isPlaying) {
+    audio.play();
+    playButton.querySelector('.play-icon').style.display = 'none';
+    playButton.querySelector('.pause-icon').style.display = 'inline';
+  } else {
+    audio.pause();
+    playButton.querySelector('.play-icon').style.display = 'inline';
+    playButton.querySelector('.pause-icon').style.display = 'none';
   }
+  isPlaying = !isPlaying;
 });
+
+audio.addEventListener('timeupdate', () => {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  progressBar.style.width = `${progress}%`;
+});
+
+//---- CART ----
+
+const products = document.querySelectorAll('.collection');
+const modal = document.getElementById('productModal');
+const modalImage = document.getElementById('modalImage');
+const modalName = document.getElementById('modalName');
+const modalPrice = document.getElementById('modalPrice');
+const closeModal = document.querySelector('.close');
+const addToCartBtn = document.getElementById('addToCart');
+const cartCount = document.getElementById('cart-count');
+
+let selectedProduct = {};
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cartCount.textContent = cart.length;
+}
+
+products.forEach(product => {
+  product.addEventListener('click', () => {
+    selectedProduct = {
+      name: product.dataset.name,
+      price: product.dataset.price,
+      image: product.dataset.image
+    };
+    modalImage.src = selectedProduct.image;
+    modalName.textContent = selectedProduct.name;
+    modalPrice.textContent = `₱ ${selectedProduct.price}`;
+    modal.style.display = 'flex';
+  });
+});
+
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.onclick = (e) => {
+  if (e.target === modal) modal.style.display = 'none';
+};
+
+addToCartBtn.addEventListener('click', () => {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(selectedProduct);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  alert(`${selectedProduct.name} added to cart!`);
+  modal.style.display = 'none';
+});
+
+updateCartCount();
