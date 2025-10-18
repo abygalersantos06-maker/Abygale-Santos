@@ -27,7 +27,6 @@ html {
 /* ------------------------------- NAVBAR ----------------------------------*/
 .navbar {
   background-color: var(--white);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   padding: 15px 5%;
   position: sticky;
   top: 0;
@@ -52,7 +51,7 @@ html {
 }
 
 .cart-icon-left:hover {
-  color: var(--mauve);
+  color: var(--burgundy);
 }
 
 #cart-count {
@@ -82,7 +81,7 @@ html {
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: var(--burgundy);
+  color: var(--white);
   cursor: pointer;
   padding: 8px;
   z-index: 1001;
@@ -90,7 +89,7 @@ html {
 }
 
 .hamburger:hover {
-  color: var(--mauve);
+  color: var(--burgundy);
 }
 
 /* ---- Bottom Row (Navigation Links) ---- */
@@ -176,19 +175,17 @@ html {
   margin: 0;
 }
 
-/* ---------- Collection Grid - FULL IMAGES BUT BALANCED ---------- */
-
-/* ---------- Collection Grid - FIXED LAYOUT ---------- */
+/* ---------- Collection Grid ---------- */
 .collections-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 2rem;
-  flex-wrap: wrap; /* CHANGED: nowrap → wrap */
+  flex-wrap: wrap;
   padding: 2rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
-  overflow-x: visible; /* CHANGED: auto → visible */
+  overflow-x: visible;
 }
 
 .collection {
@@ -207,11 +204,6 @@ html {
 .collection:hover img {
   transform: scale(1.03);
 }
-
-/* REMOVE or COMMENT OUT the scrollbar hiding */
-/* .collections-container::-webkit-scrollbar {
-  display: none;
-} */
 
 .collections-figure figcaption {
   text-align: center;
@@ -247,6 +239,66 @@ html {
   display: block;
   margin-bottom: 0.5rem;
 }
+
+/* ---------- Product Grid (for Envelopes page) ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  text-align: center;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card p {
+  color: #3e2a2a;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-card .price {
+  color: var(--burgundy);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* ---------- Textured Grid ---------- */
+.textured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  padding: 2rem 5%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /* ---------- Experience Section ---------- */
 .experience {
   background-color: #f7f5f4;
@@ -351,13 +403,13 @@ html {
 }
 
 .categories-table th {
-  background-color: var(--burgundy);
+  background-color: var(--mauve);
   color: var(--white);
   padding: 1.2rem 1.5rem;
   font-weight: 600;
   font-size: 1.1rem;
   text-align: center;
-  border: 1px solid var(--burgundy);
+  border: 1px solid var(--mauve);
 }
 
 .categories-table td {
@@ -510,6 +562,43 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* Animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Enhanced hamburger icon transition */
+.hamburger i {
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active i {
+  transform: rotate(90deg);
+}
+
 /* ================= MOBILE STYLES (768px and below) ================= */
 @media (max-width: 768px) {
   /* Navigation */
@@ -575,8 +664,7 @@ footer a:hover {
   }
 
   .hamburger:hover {
-    background-color: #f1ece8;
-    color: #855756;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   /* Mobile Navigation Menu */
@@ -587,13 +675,13 @@ footer a:hover {
     top: 100%;
     left: 0;
     width: 100%;
-    background: white;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    background: var(--burgundy);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     z-index: 1000;
     padding: 0;
     margin: 0;
     list-style: none;
-    border-top: 2px solid #f1ece8;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-links.active {
@@ -603,7 +691,7 @@ footer a:hover {
 
   .nav-links li {
     text-align: center;
-    border-bottom: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-links li:last-child {
@@ -614,16 +702,15 @@ footer a:hover {
     display: block;
     padding: 18px 20px;
     text-decoration: none;
-    color: #622828;
+    color: var(--white);
     font-weight: 500;
     transition: all 0.3s ease;
     font-size: 1rem;
-    background: white;
+    background: var(--burgundy);
   }
 
   .nav-links a:hover {
-    background-color: #f1ece8;
-    color: #855756;
+    background-color: var(--mauve);
   }
 
   /* Hero Section */
@@ -645,32 +732,40 @@ footer a:hover {
   }
 
   .collections-container {
-  flex-wrap: wrap;
-  overflow-x: visible;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  justify-content: center; /* ADD THIS - centers the items */
-}
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    justify-content: center;
+  }
 
-.collection {
-  width: calc(50% - 1rem); /* 2 columns on mobile */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* ADD THIS - centers content inside each collection */
-}
+  .collection {
+    width: calc(50% - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.collection img,
-.collection p,
-.collection strong {
-  text-align: center; /* ADD THIS - ensures text is centered */
-}
+  .collection img,
+  .collection p,
+  .collection strong {
+    text-align: center;
+  }
 
   .collection img {
     max-height: 350px;
   }
 
+  /* Product Grid Mobile */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
   /* Textured Collection Mobile */
-  .textured-collection .collection-grid {
+  .textured-collection .collection-grid,
+  .textured-grid {
     grid-template-columns: 1fr;
     max-width: 100%;
     padding: 2rem 1.5rem;
@@ -697,21 +792,21 @@ footer a:hover {
   }
 
   .collections-figure {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
 
-.collections-figure figcaption {
-  font-style: italic;
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(98, 40, 40, 0.1);
-}
+  .collections-figure figcaption {
+    font-style: italic;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(98, 40, 40, 0.1);
+  }
 
   /* Experience Section */
   .experience {
@@ -740,6 +835,10 @@ footer a:hover {
   .quote {
     padding: 40px 20px;
     font-size: 1.1rem;
+  }
+
+  .collection-heading-full h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -784,27 +883,32 @@ footer a:hover {
   }
 
   .collections-container {
-  padding: 2rem 1rem;
-  gap: 1.5rem;
-  justify-content: center; /* Ensure centered layout */
-}
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+    justify-content: center;
+  }
 
-.collection {
-  width: 100%; /* 1 column on very small screens */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center content inside */
-}
+  .collection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.collection img {
-  max-height: 300px;
-  text-align: center; /* Center images */
-}
+  .collection img {
+    max-height: 300px;
+    text-align: center;
+  }
 
-.collection p,
-.collection strong {
-  text-align: center; /* Center text */
-}
+  .collection p,
+  .collection strong {
+    text-align: center;
+  }
+
+  /* Product Grid - 1 column on small mobile */
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
 
   /* Hide table on mobile portrait */
   .categories-table {
@@ -858,72 +962,95 @@ footer a:hover {
     right: 3%;
   }
 
-  /* COLLECTIONS - 3 columns for all tablets (iPad Air style) */
-  /* ---------- Collection Grid - 2x2 LAYOUT ---------- */
-.collections-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 2rem;
-  padding: 2rem 1rem;
-  max-width: 800px; /* This centers the grid */
-  margin: 0 auto; /* This centers the container */
-  justify-items: center; /* Center items horizontally in grid cells */
-}
+  /* Hamburger should be hidden on tablet */
+  .hamburger {
+    display: none !important;
+  }
 
-.collection {
-  text-align: center;
-  width: 100%; /* Ensure full width of grid cell */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center content inside each collection */
-}
+  /* Collections - 2x2 layout */
+  .collections-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-items: center;
+  }
 
-.collection img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-  max-width: 300px; /* Optional: control image max size */
-}
+  .collection {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.collection:hover img {
-  transform: scale(1.03);
-}
+  .collection img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    max-width: 300px;
+  }
 
-.collections-figure figcaption {
-  text-align: center;
-  font-style: italic;
-  margin-top: 1.5rem;
-  color: #555;
-}
+  /* Product Grid - 2x2 layout on tablet for better balance */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem 4%;
+    max-width: 900px;
+  }
 
-.collection a {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+  /* Textured Grid - Keep 2 columns on tablet */
+  .textured-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem 4%;
+    max-width: 900px;
+  }
 
-.collection p {
-  margin-top: auto;
-  color: #3e2a2a;
-  font-size: 1rem;
-  line-height: 1.6;
-  padding: 0;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
+  /* Collection heading adjustments */
+  .collection-heading-full {
+    padding: 2.5rem 2rem;
+  }
 
-.collection strong {
-  color: var(--burgundy);
-  font-weight: 600;
-  font-size: 1.1rem;
-  display: block;
-  margin-bottom: 0.5rem;
-}
+  .collection-heading-full h3 {
+    font-size: 1.8rem;
+  }
+
+  .collection-heading-full p {
+    font-size: 1rem;
+  }
+
+  /* Categories table on tablet */
+  .categories-table {
+    padding: 0 2rem;
+  }
+
+  .categories-table th,
+  .categories-table td {
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  /* Hero section adjustments */
+  .hero {
+    height: 450px;
+  }
+
+  .intro-centered {
+    padding: 2.5rem 2.5rem;
+    max-width: 700px;
+  }
+
+  .intro-centered h2 {
+    font-size: 1.7rem;
+  }
+
+  .intro-centered p {
+    font-size: 0.95rem;
+  }
 
   /* Experience Section */
   .experience {
@@ -943,36 +1070,9 @@ footer a:hover {
 
 /* Large Desktop (1200px and above) */
 @media (min-width: 1200px) {
-
   .collection img {
     max-height: 380px;
   }
-}
-
-/* Animation for mobile menu */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Prevent body scroll when menu is open */
-body.menu-open {
-  overflow: hidden;
-}
-
-/* Enhanced hamburger icon transition */
-.hamburger i {
-  transition: transform 0.3s ease;
-}
-
-.hamburger.active i {
-  transform: rotate(90deg);
 }
 
 /* Touch device improvements */
